@@ -268,24 +268,8 @@ from initial;
 ### Answer
 ![image](https://github.com/user-attachments/assets/a32f99c8-6d61-4d83-9365-38a4b297020d)
 
-***
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 ### ✅ Next Steps  
-- Continue refining SQL queries  
-- Document key findings  
+- Continue refining SQL queries   
 - Move on to Week 2 🚀  
