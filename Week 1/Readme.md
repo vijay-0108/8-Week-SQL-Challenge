@@ -1,6 +1,6 @@
 # 📌 Week 1 - [Challenge Title]  
 
-![image](https://github.com/user-attachments/assets/d75264cd-739d-4e91-ba32-c23ec9f5689f)
+![image](https://github.com/user-attachments/assets/d75264cd-739d-4e91-ba32-c23ec9f5689f =500x500)
  
 ## 📝 Problem Statement  
 Danny wants us to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
@@ -22,7 +22,8 @@ members - customer_id, join_date
 ### 🔗 ER Diagram  
 Below is the **Entity Relationship (ER) Diagram** for the dataset:  
 
-![image](https://github.com/user-attachments/assets/793afc99-2752-48eb-adc9-7b3f78552f94)
+![image]![image](https://github.com/user-attachments/assets/6767c702-b966-448b-9900-44c4b532889d =350*350)
+
 
 ***
 
