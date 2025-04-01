@@ -116,13 +116,130 @@ where rank_order = 1;
 
 ***
 
+### 6. Which item was purchased first by the customer after they became a member?
+```` SQL
+select 
+	customer , 
+    first_order_after_member , 
+    joined_date , 
+    after_member.product_id , 
+    menu.product_name 
+from(select sales.customer_id as customer, 
+     		sales.order_date as first_order_after_member, 
+     		members.join_date as joined_date, 
+     		sales.product_id,
+	 		dense_rank() over(partition by sales.customer_id  order by sales.order_date asc) as min_date
+	from sales
+	inner join members using(customer_id)
+	where order_date>join_date) as after_member
+inner join menu on after_member.product_id = menu.product_id
+where min_date=1
+order by customer;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/cb0b4a2e-0f75-4058-ab6a-2afbcde60348)
 
+***
 
+### 7. Which item was purchased just before the customer became a member?
+```` SQL
+select 
+	customer , 
+    last_ordered_date_before_member , 
+    joined_date , 
+    before_member.product_id , 
+    menu.product_name 
+from(select sales.customer_id as customer, 
+     		sales.order_date as last_ordered_date_before_member, 
+     		members.join_date as joined_date, 
+     		sales.product_id,
+	 		dense_rank() over(partition by sales.customer_id  order by sales.order_date desc) as min_date
+	from sales
+	inner join members using(customer_id)
+	where order_date<join_date) as before_member
+inner join menu on before_member.product_id = menu.product_id
+where min_date=1
+order by customer;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/ac6163d1-b33c-4a19-84b9-1095f9353d4f)
 
+***
 
+### 8. What is the total items and amount spent for each member before they became a member?
+```` SQL
+select
+	customer_id , 
+    count(product_id) as itrem_ordered_count ,
+    sum(price) as total_ordered_price
+from(select 
+		sales.customer_id , 
+    	sales.order_date , 
+    	sales.product_id, 
+    	members.join_date
+	from sales 
+	left join members using(customer_id)
+	where order_date<join_date) as question
+inner join menu using(product_id)
+group by customer_id;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/26214dce-5fd3-457f-ad20-6865e6220618)
 
+***
 
+### 9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+```` SQL
+select 
+	customer_id,
+    sum(multiplier) as total_points
+from(select 
+		sales.customer_id,
+    	sales.product_id,
+    	menu.price,
+    	case 
+    		when product_id ='1' then price*20
+        	else price*10
+        	end as multiplier
+	from sales
+	left join menu using(product_id)) as initial_multiplier
+ group by customer_id;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/fff44f4f-65bd-4027-ba7b-e26ce19aba56)
 
+***
+
+### 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
+
+```` SQL
+with initial as
+(select 
+	customer_id , 
+    order_date , 
+    product_id , 
+    join_date , 
+    price *10 as spent,
+    date_add(join_date, interval 6 day) as first_week
+from sales
+left join menu using(product_id)
+join members using(customer_id)),
+total_points as(
+select *,
+case when order_date between join_date and first_week then 2 
+	 when product_id=1 then 2
+     else 1
+     end as points
+from initial
+where order_date<='2021-01-31')
+select customer_id , sum(spent*points) as points
+from total_points
+group by customer_id;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/d62d73f8-e53f-4b4a-9791-9f57f7691580)
+
+***
 
 
 
