@@ -43,6 +43,10 @@ select sales.customer_id ,
 from sales 
 left join menu on sales.product_id = menu.product_id group by customer_id;
 ````
+### Answer
+![image](https://github.com/user-attachments/assets/22c72ee1-dcea-4e85-a0a6-b3cb410bb4ea)
+
+***
 
 ---
 
