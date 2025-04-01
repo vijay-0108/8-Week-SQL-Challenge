@@ -44,7 +44,7 @@ Danny created Foodie-Fi with a data driven mindset and wanted to ensure all futu
 
 ***
 
-### 🔗 ER Diagram  
+## 🔗 ER Diagram  
 Below is the **Entity Relationship (ER) Diagram** for the dataset:  
 
 ![image](https://github.com/user-attachments/assets/e44e9092-1512-42fc-bec6-e594d1ffee3b)
