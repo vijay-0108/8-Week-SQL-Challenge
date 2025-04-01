@@ -13,9 +13,9 @@ Danny has provided you with a sample of his overall customer data due to privacy
 ***
 
 ## Table of Contents  
-- [Problem Statement](#problem-statement)  
-- [Available Data Sets](#available-data-sets)  
-- [ER Diagram](#er-diagram)  
+- [Problem Statement](#Problem-Statement)  
+- [Available Data Sets](#Available-Data-Sets)  
+- [ER Diagram](#ER-Diagram)  
 - [Questions & Solutions](#questions--solutions)  
   - [Question 1: Total Amount Spent by Customers](#question-1-total-amount-spent-by-customers)  
   - [Question 2: Number of Visits per Customer](#question-2-number-of-visits-per-customer)  
