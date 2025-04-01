@@ -226,20 +226,6 @@ from x;
 
 ***
 
-### Question 2
-### 2. customer balance at the end of each month
-
-```` SQL
-select region_id ,
-       count(node_id) as nodes_per_region
-from customer_nodes
-group by region_id;
-````
-### Answer
-![image](https://github.com/user-attachments/assets/1d7fa11c-ba3e-4ff5-ae6a-be7006d3a943)
-
-***
-
 ### Question 3
 ### 3. minimum, average and maximum values of the running balance for each customer
 
