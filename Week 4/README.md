@@ -188,7 +188,7 @@ from y;
 
 ***
 
-### Question 
+### Question 5
 ### 5. What is the percentage of customers who increase their closing balance by more than 5%?
 ```` SQL
 with x as(
