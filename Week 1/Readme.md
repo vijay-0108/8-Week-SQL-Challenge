@@ -35,8 +35,14 @@ Below is the **Entity Relationship (ER) Diagram** for the dataset:
 
 ## 📜 Queries & Solutions  
 
-  
+### 1. What is the total amount each customer spent at the restaurant?
 
+```` SQL
+select sales.customer_id ,
+       sum(menu.price) as total_amount_spent
+from sales 
+left join menu on sales.product_id = menu.product_id group by customer_id;
+````
 
 ---
 
