@@ -241,7 +241,34 @@ group by customer_id;
 
 ***
 
+###  Bonus Question 1.
+### The following questions are related creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL. Recreate the following table output using the available data:
+```` SQL
+with initial as(
+select 
+	customer_id , 
+    order_date , 
+    product_name , 
+    join_date , 
+    price,
+    date_add(join_date, interval 7 day) as first_week
+from sales
+left join menu using(product_id)
+left join members using(customer_id))
+select 
+	customer_id ,
+    order_date, 
+    product_name , 
+    price,
+    case when order_date >= join_date then 'y'
+    else 'N'
+    end as member
+from initial;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/a32f99c8-6d61-4d83-9365-38a4b297020d)
 
+***
 
 
 
