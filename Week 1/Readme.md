@@ -13,20 +13,9 @@ Danny has provided you with a sample of his overall customer data due to privacy
 ***
 
 ## Table of Contents  
-- [Problem Statement](#Problem-Statement)  
-- [Available Data Sets](#Available-Data-Sets)  
-- [ER Diagram](#ER-Diagram)  
-- [Questions & Solutions](#questions--solutions)  
-  - [Question 1: Total Amount Spent by Customers](#question-1-total-amount-spent-by-customers)  
-  - [Question 2: Number of Visits per Customer](#question-2-number-of-visits-per-customer)  
-  - [Question 3: First Item Purchased by Each Customer](#question-3-first-item-purchased-by-each-customer)  
-  - [Question 4: Most Purchased Item on the Menu](#question-4-most-purchased-item-on-the-menu)  
-  - [Question 5: Most Popular Item for Each Customer](#question-5-most-popular-item-for-each-customer)  
-  - [Question 6: First Purchase After Becoming a Member](#question-6-first-purchase-after-becoming-a-member)  
-  - [Question 7: Purchase Just Before Membership](#question-7-purchase-just-before-membership)  
-  - [Question 8: Total Items & Amount Spent Before Membership](#question-8-total-items--amount-spent-before-membership)  
-  - [Question 9: Customer Points Calculation](#question-9-customer-points-calculation)  
-  - [Question 10: Bonus Question - First Week Multiplier](#question-10-bonus-question---first-week-multiplier)  
+- [Problem Statement](#problem-statement)
+- [ER Diagram](#entity-relationship-diagram)
+- [Questions and Solutions](#question-and-solution)
 
 ***
 
