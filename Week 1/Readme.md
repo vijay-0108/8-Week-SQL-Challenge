@@ -13,9 +13,21 @@ Danny has provided you with a sample of his overall customer data due to privacy
 ***
 
 ## Table of Contents  
-- [Problem Statement](#problem-statement)
-- [ER Diagram](#entity-relationship-diagram)
-- [Questions and Solutions](#question-and-solution)
+- [Problem Statement](#-problem-statement)  
+- [Available Datasets](#-available-datasets)  
+- [ER Diagram](#-er-diagram)  
+- [Queries & Solutions](#-queries--solutions)  
+  - [1. Total Amount Spent by Customers](#1-what-is-the-total-amount-each-customer-spent-at-the-restaurant)  
+  - [2. Number of Visits per Customer](#2-how-many-days-has-each-customer-visited-the-restaurant)  
+  - [3. First Item Purchased by Each Customer](#3-what-was-the-first-item-from-the-menu-purchased-by-each-customer)  
+  - [4. Most Purchased Item on the Menu](#4-what-is-the-most-purchased-item-on-the-menu-and-how-many-times-was-it-purchased-by-all-customers)  
+  - [5. Most Popular Item for Each Customer](#5-which-item-was-the-most-popular-for-each-customer)  
+  - [6. First Purchase After Becoming a Member](#6-which-item-was-purchased-first-by-the-customer-after-they-became-a-member)  
+  - [7. Purchase Just Before Membership](#7-which-item-was-purchased-just-before-the-customer-became-a-member)  
+  - [8. Total Items & Amount Spent Before Membership](#8-what-is-the-total-items-and-amount-spent-for-each-member-before-they-became-a-member)  
+  - [9. Customer Points Calculation](#9-if-each-1-spent-equates-to-10-points-and-sushi-has-a-2x-points-multiplier---how-many-points-would-each-customer-have)  
+  - [10. Bonus Question - First Week Multiplier](#10-in-the-first-week-after-a-customer-joins-the-program-including-their-join-date-they-earn-2x-points-on-all-items-not-just-sushi---how-many-points-do-customer-a-and-b-have-at-the-end-of-january)  
+
 
 ***
 
