@@ -3,7 +3,7 @@
 ![image](https://github.com/user-attachments/assets/b3864f87-fe6c-495e-9ba6-bf43b6de32da)
 
 ## 📌 Challenge Overview  
-This case study is part of the **[8-Week SQL Challenge](https://8weeksqlchallenge.com/case-study-1/)** by **Danny Ma**.  
+This case study is part of the **[8-Week SQL Challenge](https://8weeksqlchallenge.com)** by **Danny Ma**.  
 Check out the original challenge details [here](https://8weeksqlchallenge.com/case-study-1/).  
 
 ## 📌 Table of Contents  
