@@ -1,4 +1,4 @@
-# 📌 Week 1 - [Challenge Title]  
+# 📌 Case Study #1 - Danny's Diner
 
 ![image](https://github.com/user-attachments/assets/b3864f87-fe6c-495e-9ba6-bf43b6de32da)
 
