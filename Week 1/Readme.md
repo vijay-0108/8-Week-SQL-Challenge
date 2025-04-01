@@ -14,9 +14,15 @@ Danny has provided you with a sample of his overall customer data due to privacy
 
 ## 📊 Available Datasets  
 
-sales - customer_id, order_date, product_id
-menu - product_id, product_name, price
-members - customer_id, join_date
+### Sales Table
+- **customer_id, order_date, product_id**  
+
+### Menu Table
+- **product_id, product_name, price**  
+
+### Members Table
+- **customer_id, join_date**  
+
 
 ***
 
