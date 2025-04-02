@@ -15,25 +15,6 @@ Danny created Foodie-Fi with a data driven mindset and wanted to ensure all futu
 
 ***
 
-## 📌 Table of Contents
-
-- [Introduction](#introduction)  
-- [ER Diagram](#er-diagram)  
-- [Available Datasets](#available-datasets)  
-- [Questions and Solutions](#questions-and-solutions)  
-- [Question 1](#Question-1)
-- [Question 2](#Question-2)
-- [Question 3](#Question-3)
-- [Question 4](#Question-4)
-- [Question 5](#Question-5)
-- [Question 6](#Question-6)
-- [Question 7](#Question-7)
-- [Question 8](#Question-8)
-- [Question 9](#Question-9)
-- [Question 10](#Question-10)
-- [Question 11](#Question-11)
-***
-
 ## 📊 Available Datasets  
 
 ### Plans Table
