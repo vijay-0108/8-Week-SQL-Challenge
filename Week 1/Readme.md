@@ -15,24 +15,6 @@ Danny has provided you with a sample of his overall customer data due to privacy
 
 ***
 
-## 📌 Table of Contents
-
-- [Problem Statement](#problem-statement)  
-- [ER Diagram](#er-diagram)  
-- [Available Datasets](#available-datasets)  
-- [Questions and Solutions](#questions-&-solutions)  
-- [Question 1](#Question-1)
-- [Question 2](#Question-2)
-- [Question 3](#Question-3)
-- [Question 4](#Question-4)
-- [Question 5](#Question-5)
-- [Question 6](#Question-6)
-- [Question 7](#Question-7)
-- [Question 8](#Question-8)
-- [Question 9](#Question-9)
-- [Question 10](#Question-10)
-***
-
 ## 📊 Available Datasets  
 
 ### Sales Table
