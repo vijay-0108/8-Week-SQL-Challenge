@@ -15,32 +15,32 @@ In this case study - you are required to support Danny’s vision and analyse hi
 
 ## Table of Contents  
 
-1. 📌 **Case Study Overview**  
-2. 📝 **Introduction**  
-3. 📊 **Available Datasets**  
-   - Campaign Identifier  
-   - Event Identifier  
-   - Events  
-   - Page Hierarchy  
-   - Users  
-4. 📜 **Questions & Solutions**  
+1. 📌 [**Case Study Overview**](#case-study-overview)  
+2. 📝 [**Introduction**](#introduction)  
+3. 📊 [**Available Datasets**](#available-datasets)  
+   - [Campaign Identifier](#campaign-identifier)  
+   - [Event Identifier](#event-identifier)  
+   - [Events](#events)  
+   - [Page Hierarchy](#page-hierarchy)  
+   - [Users](#users)  
+4. 📜 [**Questions & Solutions**](#questions--solutions)  
    - **B. Digital Analysis**  
-     1. How many users are there?  
-     2. How many cookies does each user have on average?  
-     3. What is the unique number of visits by all users per month?  
-     4. What is the number of events for each event type?  
-     5. What is the percentage of visits which have a purchase event?  
-     6. What is the percentage of visits which view the checkout page but do not have a purchase event?  
-     7. What are the top 3 pages by number of views?  
-     8. What is the number of views and cart adds for each product category?  
-     9. What are the top 3 products by purchases?  
+     - [1. How many users are there?](#1-how-many-users-are-there)  
+     - [2. How many cookies does each user have on average?](#2-how-many-cookies-does-each-user-have-on-average)  
+     - [3. What is the unique number of visits by all users per month?](#3-what-is-the-unique-number-of-visits-by-all-users-per-month)  
+     - [4. What is the number of events for each event type?](#4-what-is-the-number-of-events-for-each-event-type)  
+     - [5. What is the percentage of visits which have a purchase event?](#5-what-is-the-percentage-of-visits-which-have-a-purchase-event)  
+     - [6. What is the percentage of visits which view the checkout page but do not have a purchase event?](#6-what-is-the-percentage-of-visits-which-view-the-checkout-page-but-do-not-have-a-purchase-event)  
+     - [7. What are the top 3 pages by number of views?](#7-what-are-the-top-3-pages-by-number-of-views)  
+     - [8. What is the number of views and cart adds for each product category?](#8-what-is-the-number-of-views-and-cart-adds-for-each-product-category)  
+     - [9. What are the top 3 products by purchases?](#9-what-are-the-top-3-products-by-purchases)  
    - **C. Product Funnel Analysis**  
-     1. Funnel Metrics for Individual Products  
-     2. Funnel Metrics for Product Categories  
-     3. Insights from Funnel Analysis  
-        - Most viewed, cart added, and purchased product  
-        - Most abandoned product  
-        - Product with highest view-to-purchase percentage  
+     - [1. Funnel Metrics for Individual Products](#1-funnel-metrics-for-individual-products)  
+     - [2. Funnel Metrics for Product Categories](#2-funnel-metrics-for-product-categories)  
+     - [3. Insights from Funnel Analysis](#3-insights-from-funnel-analysis)  
+       - [Most viewed, cart added, and purchased product](#most-viewed-cart-added-and-purchased-product)  
+       - [Most abandoned product](#most-abandoned-product)  
+       - [Product with highest view-to-purchase percentage](#product-with-highest-view-to-purchase-percentage)  
 
 ***
 
