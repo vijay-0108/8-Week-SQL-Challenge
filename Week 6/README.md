@@ -13,27 +13,34 @@ In this case study - you are required to support Danny’s vision and analyse hi
 
 ***
 
-## 📌 Table of Contents
+## Table of Contents  
 
-- [Introduction](#📝-introduction)  
-- [ER Diagram](#🔗-er-diagram)  
-- [Available Datasets](#📊-available-datasets)  
-- [Questions and Solutions](#📜-questions-and-solutions)  
-  - [A. Data Cleansing Steps](#a-data-cleansing-steps)
-    - [Question 1](#question-1)
-  - [B. Data Exploration](#b-data-exploration)
-    - [Question 1](#question-1-1)
-    - [Question 2](#question-2-1)
-    - [Question 3](#question-3-1)
-    - [Question 4](#question-4-1)
-    - [Question 5](#question-5)
-    - [Question 6](#question-6)
-    - [Question 7](#question-7)
-    - [Question 8](#question-8)
-    - [Question 9](#question-9)
-  - [C. Before & After Analysis](#c-before--after-analysis)
-    - [Question 1](#question-1-2)
-    - [Question 2](#question-2-2)
+1. 📌 **Case Study Overview**  
+2. 📝 **Introduction**  
+3. 📊 **Available Datasets**  
+   - Campaign Identifier  
+   - Event Identifier  
+   - Events  
+   - Page Hierarchy  
+   - Users  
+4. 📜 **Questions & Solutions**  
+   - **B. Digital Analysis**  
+     1. How many users are there?  
+     2. How many cookies does each user have on average?  
+     3. What is the unique number of visits by all users per month?  
+     4. What is the number of events for each event type?  
+     5. What is the percentage of visits which have a purchase event?  
+     6. What is the percentage of visits which view the checkout page but do not have a purchase event?  
+     7. What are the top 3 pages by number of views?  
+     8. What is the number of views and cart adds for each product category?  
+     9. What are the top 3 products by purchases?  
+   - **C. Product Funnel Analysis**  
+     1. Funnel Metrics for Individual Products  
+     2. Funnel Metrics for Product Categories  
+     3. Insights from Funnel Analysis  
+        - Most viewed, cart added, and purchased product  
+        - Most abandoned product  
+        - Product with highest view-to-purchase percentage  
 
 ***
 
