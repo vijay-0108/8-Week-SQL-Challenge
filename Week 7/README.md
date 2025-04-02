@@ -1,4 +1,4 @@
-# 📌 Case Study #4 - Data Bank
+# 📌 Case Study #7 - Balanced Tree Clothing Co.
 
 ![image](https://github.com/user-attachments/assets/3c1c7b4f-f72d-4e6a-ac6e-a9f4a58d6eed)
 
