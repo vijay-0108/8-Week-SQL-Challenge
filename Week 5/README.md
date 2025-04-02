@@ -262,52 +262,81 @@ group by year_number , platform;
 
 ## C. Before & After Analysis
 
+### This technique is usually used when we inspect an important event and want to inspect the impact before and after a certain point in time.
+-- Taking the `week_date` value of `2020-06-15` as the baseline week where the Data Mart sustainable packaging changes came into effect. We would include all `week_date` values for `2020-06-15` as the start of the period after the change and the previous week_date values would be before. Using this analysis approach - answer the following questions:
+
 ### Question 1
-### 1. This technique is usually used when we inspect an important event and want to inspect the impact before and after a certain point in time.
--- Taking the `week_date` value of `2020-06-15` as the baseline week where the Data Mart sustainable packaging changes came into effect. We would include all `week_date` values for `2020-06-15` as the start of the period after the change and the previous week_date values would be before.
-
--- Using this analysis approach - answer the following questions:
-
-**1. What is the total sales for the 4 weeks before and after `2020-06-15`? What is the growth or reduction rate in actual values and percentage of sales?**
-
-Before we proceed, we determine the the week_number corresponding to '2020-06-15' to use it as a filter in our analysis. 
-
+### 1. What is the total sales for the 4 weeks before and after 2020-06-15? What is the growth or reduction rate in actual values and percentage of sales?
 ```` SQL
-with x as(
-select * , 
-case when txn_type<>'deposit' then -1*txn_amount
-else txn_amount end as initial
-from customer_transactions)
-select * ,sum(initial) over(partition by customer_id order by txn_date rows between unbounded preceding and current row) as running_transaction
-from x;
+CREATE VIEW new_te AS
+WITH after_sales AS (
+    SELECT SUM(sales) AS total_after_sales
+    FROM (
+        SELECT sales, DENSE_RANK() OVER (ORDER BY week_date_new) AS ranking
+        FROM clean_weekly_sales
+        WHERE week_date_new >= '2020-06-15'
+    ) ranked
+    WHERE ranking <= 4
+), 
+before_sales AS (
+    SELECT SUM(sales) AS total_before_sales
+    FROM (
+        SELECT sales, DENSE_RANK() OVER (ORDER BY week_date_new DESC) AS ranking
+        FROM clean_weekly_sales
+        WHERE week_date_new < '2020-06-15'
+    ) ranked
+    WHERE ranking <= 4
+)
+SELECT total_after_sales, total_before_sales
+FROM after_sales, before_sales;
+
+SELECT total_after_sales - total_before_sales AS sales_variance,
+       ROUND((total_before_sales / (total_before_sales + total_after_sales)) * 100, 2) -
+       ROUND((total_after_sales / (total_before_sales + total_after_sales)) * 100, 2) AS percent_variance
+FROM new_te;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/ea33f8d4-e399-4a20-9475-9f83262aa017)
+![image](https://github.com/user-attachments/assets/1e0d7a97-74ce-493c-be22-79b2be7fb60f)
 
 ***
 
-### Question 3
-### 3. minimum, average and maximum values of the running balance for each customer
+### Question 2
+### 2. What about the entire 12 weeks before and after?
 
 ```` SQL
-with x as(
-select * , 
-case when txn_type<>'deposit' then -1*txn_amount
-else txn_amount end as initial
-from customer_transactions), y as(
-select customer_id , txn_date , txn_type , txn_amount ,sum(initial) over(partition by customer_id order by txn_date rows between unbounded preceding and current row) as running_transaction
-from x)
-select distinct customer_id , min(running_transaction) over(partition by customer_id order by txn_date rows between unbounded preceding and unbounded following) as min_running_sum,
-max(running_transaction) over(partition by customer_id order by txn_date rows between unbounded preceding and unbounded following)as max_running_sum,
-avg(running_transaction) over(partition by customer_id order by txn_date rows between unbounded preceding and unbounded following)as avg_running_sum
-from y;
+CREATE VIEW new_tep_tab AS
+WITH after_sales AS (
+    SELECT SUM(sales) AS total_after_sales
+    FROM (
+        SELECT sales, DENSE_RANK() OVER (ORDER BY week_date_new) AS ranking
+        FROM clean_weekly_sales
+        WHERE week_date_new >= '2020-06-15'
+    ) ranked
+    WHERE ranking <= 12
+), 
+before_sales AS (
+    SELECT SUM(sales) AS total_before_sales
+    FROM (
+        SELECT sales, DENSE_RANK() OVER (ORDER BY week_date_new DESC) AS ranking
+        FROM clean_weekly_sales
+        WHERE week_date_new < '2020-06-15'
+    ) ranked
+    WHERE ranking <= 12
+)
+SELECT total_after_sales, total_before_sales
+FROM after_sales, before_sales;
+
+SELECT total_after_sales - total_before_sales AS sales_variance,
+       ROUND((total_before_sales / (total_before_sales + total_after_sales)) * 100, 2) -
+       ROUND((total_after_sales / (total_before_sales + total_after_sales)) * 100, 2) AS percent_variance
+FROM new_tep_tab;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/91483218-9729-41b3-b677-dcfd6415c213)
+![image](https://github.com/user-attachments/assets/054ffa1e-eaf8-43a8-bdf2-3b6e07822f9d)
 
 ***
 
 ### ✅ Next Steps  
 - Continue refining SQL queries   
-- Move on to [Week 5](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%205/README.md) 🚀  
+- Move on to [Week 5](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%206/README.md) 🚀  
 
