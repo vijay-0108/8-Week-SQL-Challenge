@@ -365,5 +365,5 @@ group by prod_id;
 
 ### ✅ Next Steps  
 - Continue refining SQL queries   
-- Move on to [Week 5](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%205/README.md) 🚀  
+- Move on to [Week 8](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%208/README.md) 🚀  
 
