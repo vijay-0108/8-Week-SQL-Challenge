@@ -323,9 +323,14 @@ limit 1;
 -- What is the average conversion rate from view to cart add?
 ````SQL
 ````
+### Answer
+
 -- What is the average conversion rate from cart add to purchase?
 ````SQL
 ````
+### Answer
+
+***
 
 ## D. Campaigns Analysis
 
