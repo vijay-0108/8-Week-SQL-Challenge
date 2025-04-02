@@ -303,4 +303,4 @@ from initial;
 
 ### ✅ Next Steps  
 - Continue refining SQL queries   
-- Move on to Week 2 🚀  
+- Move on to [Week 2](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%202/README.md) 🚀  
