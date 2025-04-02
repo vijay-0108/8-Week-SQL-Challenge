@@ -23,20 +23,28 @@ This case study is all about calculating metrics, growth and helping the busines
 
 ## 📌 Table of Contents
 
+## 📌 Table of Contents
+
 - [Introduction](#introduction)  
 - [ER Diagram](#er-diagram)  
 - [Available Datasets](#available-datasets)  
 - [Questions and Solutions](#questions-and-solutions)  
-- [Question 1](#Question-1)
-- [Question 2](#Question-2)
-- [Question 3](#Question-3)
-- [Question 4](#Question-4)
-- [Question 5](#Question-5)
-- [Question 6](#Question-6)
-- [Question 7](#Question-7)
-- [Question 8](#Question-8)
-- [Question 9](#Question-9)
-- [Question 10](#Question-10)
+  - [A. Customer Nodes Exploration](#a-customer-nodes-exploration)
+    - [Question 1](#question-1)
+    - [Question 2](#question-2)
+    - [Question 3](#question-3)
+    - [Question 4](#question-4)
+  - [B. Customer Transactions](#b-customer-transactions)
+    - [Question 1](#question-1-1)
+    - [Question 2](#question-2-1)
+    - [Question 3](#question-3-1)
+    - [Question 4](#question-4-1)
+    - [Question 5](#question-5)
+  - [C. Data Allocation Challenge](#c-data-allocation-challenge)
+    - [Question 1](#question-1-2)
+    - [Question 3](#question-3-2)
+- [Next Steps](#next-steps)
+
 ***
 
 ## 📊 Available Datasets  
