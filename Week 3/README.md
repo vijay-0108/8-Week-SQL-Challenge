@@ -257,5 +257,5 @@ from y;
 
 ### ✅ Next Steps  
 - Continue refining SQL queries   
-- Move on to [Week 3](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%204/README.md) 🚀  
+- Move on to [Week 4](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%204/README.md) 🚀  
 
