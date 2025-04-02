@@ -304,6 +304,10 @@ SELECT total_after_sales - total_before_sales AS sales_variance,
        ROUND((total_before_sales / (total_before_sales + total_after_sales)) * 100, 2) -
        ROUND((total_after_sales / (total_before_sales + total_after_sales)) * 100, 2) AS percent_variance
 FROM new_tep_tab;
+````
+
+### Answer
+![image](https://github.com/user-attachments/assets/10f3f177-02f2-435e-bee3-9723619a52c0)
 
 ***
 
