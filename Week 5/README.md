@@ -253,8 +253,10 @@ from clean_weekly_sales
 group by year_number , platform;
 ````
 ### Answer
--- By using AVG_TRANSACTIONS ![image](https://github.com/user-attachments/assets/4b2b3ff3-2272-43e2-9097-df3a0d7e6bde)
--- By Regular Method ![image](https://github.com/user-attachments/assets/8b8ebd15-1826-45a2-b0d1-cf76d31d7ee6)
+-- By using AVG_TRANSACTIONS 
+-- ![image](https://github.com/user-attachments/assets/4b2b3ff3-2272-43e2-9097-df3a0d7e6bde)
+-- By Regular Method 
+-- ![image](https://github.com/user-attachments/assets/8b8ebd15-1826-45a2-b0d1-cf76d31d7ee6)
 
 ***
 
