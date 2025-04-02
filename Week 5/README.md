@@ -21,30 +21,6 @@ What can we do about future introduction of similar sustainability updates to th
 
 ***
 
-## 📌 Table of Contents
-
-- [Introduction](#📝-introduction)  
-- [ER Diagram](#🔗-er-diagram)  
-- [Available Datasets](#📊-available-datasets)  
-- [Questions and Solutions](#📜-questions-and-solutions)  
-  - [A. Data Cleansing Steps](#a-data-cleansing-steps)
-    - [Question 1](#question-1)
-  - [B. Data Exploration](#b-data-exploration)
-    - [Question 1](#question-1-1)
-    - [Question 2](#question-2-1)
-    - [Question 3](#question-3-1)
-    - [Question 4](#question-4-1)
-    - [Question 5](#question-5)
-    - [Question 6](#question-6)
-    - [Question 7](#question-7)
-    - [Question 8](#question-8)
-    - [Question 9](#question-9)
-  - [C. Before & After Analysis](#c-before--after-analysis)
-    - [Question 1](#question-1-2)
-    - [Question 2](#question-2-2)
-
-***
-
 ## 📊 Available Datasets  
 
 ### Weekly Sales 
