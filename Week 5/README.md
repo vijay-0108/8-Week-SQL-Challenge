@@ -304,9 +304,17 @@ SELECT total_after_sales - total_before_sales AS sales_variance,
        ROUND((total_before_sales / (total_before_sales + total_after_sales)) * 100, 2) -
        ROUND((total_after_sales / (total_before_sales + total_after_sales)) * 100, 2) AS percent_variance
 FROM new_tep_tab;
+
+***
+
+### Question 3
+### 3. How do the sale metrics for these 2 periods before and after compare with the previous years in 2018 and 2019?
+
+````SQL
 ````
+
 ### Answer
-![image](https://github.com/user-attachments/assets/054ffa1e-eaf8-43a8-bdf2-3b6e07822f9d)
+
 
 ***
 
