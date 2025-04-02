@@ -263,6 +263,33 @@ select visit_id , cookie_id , page_id ,  page_name , product_category , event_ty
 	else 'items_not_purchased'
 	end as purchase_category
 from x)
+select page_name , 
+	count(case when event_name = 'page view' then 1 end) as page_view_count , 
+    count(case when event_name = 'add to cart' then 1 end) as added_to_cart_count , 
+    count(case when event_name = 'add to cart' and purchase_category = 'items_not_purchased' then 1 end) as added_to_cart_not_purchased,
+    count(case when event_name = 'add to cart' and purchase_category = 'items_purchased' then page_id  end) as added_to_cart_purchased
+from y
+where page_name not in ('home page' , 'all products' , 'checkout' , 'confirmation')
+group by page_name;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/58cdc0fc-2d08-4961-bbdf-96768d5c4eff)
+
+***
+
+### Additionally, create another table which further aggregates the data for the above points but this time for each product category instead of individual products.
+
+```` SQL
+with x as(
+select visit_id , cookie_id , page_id ,  page_name , product_category , event_type , event_name , sequence_number , event_time , max(page_id) over(partition by visit_id) as max_page_id
+from events left join event_identifier using(event_type)
+left join page_hierarchy using(page_id)) , 
+y as(
+select visit_id , cookie_id , page_id ,  page_name , product_category , event_type , event_name , sequence_number , event_time ,
+ case when max_page_id='13' then 'items_purchased'
+	else 'items_not_purchased'
+	end as purchase_category
+from x)
 select product_category , 
 	count(case when event_name = 'page view' then 1 end) as page_view_count , 
     count(case when event_name = 'add to cart' then 1 end) as added_to_cart_count , 
@@ -272,11 +299,55 @@ from y
 where page_name not in ('home page' , 'all products' , 'checkout' , 'confirmation')
 group by product_category;
 ````
-### Answer
-![image](https://github.com/user-attachments/assets/58cdc0fc-2d08-4961-bbdf-96768d5c4eff)
 
 ***
 
+### Use your 2 new output tables - answer the following questions:
+-- Which product had the most views, cart adds and purchases?
+````
+-- Most Views - Oyster
+-- Most Cart Adds - Lobster
+-- Most Purchases - Lobster
+````
+-- Which product was most likely to be abandoned?
+````SQL
+-- Based on added to cart not purchsed and its also the least purchased item russian caviar
+````
+-- Which product had the highest view to purchase percentage?
+````SQL
+with x as(
+select visit_id , cookie_id , page_id ,  page_name , product_category , event_type , event_name , sequence_number , event_time , max(page_id) over(partition by visit_id) as max_page_id
+from events left join event_identifier using(event_type)
+left join page_hierarchy using(page_id)) , 
+y as(
+select visit_id , cookie_id , page_id ,  page_name , product_category , event_type , event_name , sequence_number , event_time ,
+ case when max_page_id='13' then 'items_purchased'
+	else 'items_not_purchased'
+	end as purchase_category
+from x),
+z as(
+select page_name , 
+	count(case when event_name = 'page view' then 1 end) as page_view_count , 
+    count(case when event_name = 'add to cart' then 1 end) as added_to_cart_count , 
+    count(case when event_name = 'add to cart' and purchase_category = 'items_not_purchased' then 1 end) as added_to_cart_not_purchased,
+    count(case when event_name = 'add to cart' and purchase_category = 'items_purchased' then page_id  end) as added_to_cart_purchased
+from y
+where page_name not in ('home page' , 'all products' , 'checkout' , 'confirmation')
+group by page_name)
+select page_name , round(((added_to_cart_purchased/page_view_count) * 100) , 2) as view_to_percent
+from z
+order by view_to_percent desc
+limit 1;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/09f15971-a9fe-48bc-a830-13b65fe9a183)
+
+-- What is the average conversion rate from view to cart add?
+````SQL
+````
+-- What is the average conversion rate from cart add to purchase?
+````SQL
+````
 ### ✅ Next Steps  
 - Continue refining SQL queries   
 - Move on to [Week 7](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%207/README.md) 🚀  
