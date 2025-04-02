@@ -99,6 +99,15 @@ group by node_id;
 
 ***
 
+### Question 5
+### 5. What is the median, 80th and 95th percentile for this same reallocation days metric for each region?
+```` SQL
+````
+### Answer
+
+
+***
+
 ## B. Customer Transactions
 
 ### Question 1
@@ -205,6 +214,17 @@ from x;
 ````
 ### Answer
 ![image](https://github.com/user-attachments/assets/ea33f8d4-e399-4a20-9475-9f83262aa017)
+
+***
+
+### Question 2
+### 2. Customer balance at the end of each month
+
+```` SQL
+
+````
+### Answer
+
 
 ***
 
