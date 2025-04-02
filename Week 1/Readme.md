@@ -281,7 +281,15 @@ from initial;
 ### Answer
 ![image](https://github.com/user-attachments/assets/a32f99c8-6d61-4d83-9365-38a4b297020d)
 
----
+***
+
+###  Bonus Question 2.
+### Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
+```` SQL
+
+````
+### Answer
+
 
 ### ✅ Next Steps  
 - Continue refining SQL queries   
