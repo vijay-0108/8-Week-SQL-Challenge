@@ -42,7 +42,6 @@ What can we do about future introduction of similar sustainability updates to th
   - [C. Before & After Analysis](#c-before--after-analysis)
     - [Question 1](#question-1-2)
     - [Question 2](#question-2-2)
-- [Next Steps](#next-steps)
 
 ***
 
