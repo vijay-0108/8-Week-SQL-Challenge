@@ -363,6 +363,16 @@ group by prod_id;
 
 ***
 
+### Bonus Challenge
+### Question
+### Use a single SQL query to transform the product_hierarchy and product_prices datasets to the product_details table.
+-- Hint: you may want to consider using a recursive CTE to solve this problem!
+
+````SQL
+````
+
+# Answer
+
 ### ✅ Next Steps  
 - Continue refining SQL queries   
 - Move on to [Week 8](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%208/README.md) 🚀  
