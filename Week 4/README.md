@@ -255,4 +255,4 @@ from y;
 
 ### ✅ Next Steps  
 - Continue refining SQL queries   
-- Move on to Week 5 🚀  
+- Move on to [Week 5](https://github.com/vijay-0108/8-Week-SQL-Challenge/blob/main/Week%205/README.md) 🚀  
