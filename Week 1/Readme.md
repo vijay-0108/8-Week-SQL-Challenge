@@ -20,7 +20,7 @@ Danny has provided you with a sample of his overall customer data due to privacy
 - [Problem Statement](#problem-statement)  
 - [ER Diagram](#er-diagram)  
 - [Available Datasets](#available-datasets)  
-- [Questions and Solutions](#questions-and-solutions)  
+- [Questions and Solutions](#questions-&-solutions)  
 - [Question 1](#Question-1)
 - [Question 2](#Question-2)
 - [Question 3](#Question-3)
