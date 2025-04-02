@@ -48,7 +48,7 @@ In this case study - you are required to support Danny’s vision and analyse hi
 ### Events
 - **visit_id, cookie_id, page_id, event_type, sequence_number, event_time**
 
-  ### Page Hierarchy
+### Page Hierarchy
 - **page_id, page_name, product_category, product_id**
 
 ### Users
