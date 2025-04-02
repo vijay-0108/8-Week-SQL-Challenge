@@ -299,6 +299,8 @@ from y
 where page_name not in ('home page' , 'all products' , 'checkout' , 'confirmation')
 group by product_category;
 ````
+### Answer
+![image](https://github.com/user-attachments/assets/7152c739-f44c-4a27-a6a0-bb1e1e6f7b29)
 
 ***
 
