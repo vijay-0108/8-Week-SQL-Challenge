@@ -161,10 +161,17 @@ group by member;
 ### 1. What are the top 3 products by total revenue before discount?
 
 ```` SQL
-
+with x as(
+select prod_id , sum(price*qty) as total_revenue
+from sales
+group by prod_id)
+select prod_id , total_revenue
+from x
+order by total_revenue desc
+limit 3;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/fda155ef-0434-4709-971a-8f3a92a89d8f)
+![image](https://github.com/user-attachments/assets/df46b8ef-d071-48ac-bee9-2794efe5dec6)
 
 ***
 
@@ -172,10 +179,16 @@ group by member;
 ### 2. What is the total quantity, revenue and discount for each segment?
 
 ```` SQL
-
+with x as(
+select prod_id , segment_name ,  qty ,  sales.price , discount , member , txn_id , start_txn_time 
+from sales 
+left join product_details on sales.prod_id = product_details.product_id)
+select segment_name , sum(qty) as total_qty , sum((((qty * price) / 100) * (100 - discount))) as total_revenue , SUM((qty * price) - (((qty * price) / 100) * (100 - discount))) as total_discount
+from x
+group by segment_name;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/29ce3dc2-a6f8-4ffa-8135-8d9344ca089b)
+![image](https://github.com/user-attachments/assets/25c47b9a-9fcc-4f9c-b25f-2a44828e807d)
 
 ***
 
@@ -183,10 +196,39 @@ group by member;
 ### 3. What is the top selling product for each segment?
 
 ```` SQL
+-- in terms of revenue 
+with x as(
+select prod_id , product_name , segment_name ,  qty ,  sales.price , discount , member , txn_id , start_txn_time 
+from sales 
+left join product_details on sales.prod_id = product_details.product_id),
+y as(
+select segment_name , product_name ,  sum((((qty * price) / 100) * (100 - discount))) as total_revenue 
+from x
+group by 2 , 1),
+z as(
+select segment_name , product_name , total_revenue , dense_rank() over(partition by segment_name order by total_revenue desc) as ranking
+from y)
+select * from z where ranking = 1;
 
+-- in terms of quantity
+with x as(
+select prod_id , product_name , segment_name ,  qty ,  sales.price , discount , member , txn_id , start_txn_time 
+from sales 
+left join product_details on sales.prod_id = product_details.product_id),
+y as(
+select segment_name , product_name ,  sum(qty) as total_qty 
+from x
+group by 2 , 1),
+z as(
+select segment_name , product_name , total_qty , dense_rank() over(partition by segment_name order by total_qty desc) as ranking
+from y)
+select * from z where ranking = 1;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/98c33ac4-7e6a-47a0-90d5-bc9ae7a36d2d)
+## In Terms Of Revenue
+![image](https://github.com/user-attachments/assets/df0d7abf-8972-4681-886f-10788101efd6)
+## In Terms Of Category
+![image](https://github.com/user-attachments/assets/2a74575c-0392-4ef7-890f-d342c2fabde1)
 
 ***
 
@@ -194,10 +236,16 @@ group by member;
 ### 4. What is the total quantity, revenue and discount for each category?
 
 ```` SQL
-
+with x as(
+select prod_id , category_name ,  qty ,  sales.price , discount , member , txn_id , start_txn_time 
+from sales 
+left join product_details on sales.prod_id = product_details.product_id)
+select category_name, sum(qty) as total_qty , sum((((qty * price) / 100) * (100 - discount))) as total_revenue , SUM((qty * price) - (((qty * price) / 100) * (100 - discount))) as total_discount
+from x 
+group by category_name;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/43a395f6-bc91-41ed-944a-28c338d5014e)
+![image](https://github.com/user-attachments/assets/77a59ab8-77d0-4b8b-a874-ebba4e896445)
 
 ***
 
@@ -205,10 +253,39 @@ group by member;
 ### 5. What is the top selling product for each category?
 
 ```` SQL
+-- in terms of revenue
+with x as(
+select prod_id , product_name , category_name ,  qty ,  sales.price , discount , member , txn_id , start_txn_time 
+from sales 
+left join product_details on sales.prod_id = product_details.product_id),
+y as(
+select category_name , product_name ,  sum((((qty * price) / 100) * (100 - discount))) as total_revenue 
+from x
+group by 2 , 1),
+z as(
+select category_name , product_name , total_revenue , dense_rank() over(partition by category_name order by total_revenue desc) as ranking
+from y)
+select * from z where ranking = 1;
 
+-- in terms of quantity
+with x as(
+select prod_id , product_name , category_name ,  qty ,  sales.price , discount , member , txn_id , start_txn_time 
+from sales 
+left join product_details on sales.prod_id = product_details.product_id),
+y as(
+select category_name , product_name ,  sum(qty) as total_qty 
+from x
+group by 2 , 1),
+z as(
+select category_name , product_name , total_qty , dense_rank() over(partition by category_name order by total_qty desc) as ranking
+from y)
+select * from z where ranking = 1;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/e0d99c6d-20a9-462e-bbe0-b9008230e27b)
+## In Terms Of Revenue
+![image](https://github.com/user-attachments/assets/5e3fffd3-6244-4848-9a6b-8c95a5e3df8e)
+## In Terms Of Category
+![image](https://github.com/user-attachments/assets/311df3fa-41fd-4a9a-9579-3add2a59a45f)
 
 ***
 
@@ -216,8 +293,16 @@ group by member;
 ### 6. What is the percentage split of revenue by product for each segment?
 
 ```` SQL
-
+SELECT 
+    segment_name, 
+    product_name, 
+    (SUM(((qty * sales.price) / 100) * (100 - discount)) / SUM(SUM(((qty * sales.price) / 100) * (100 - discount))) OVER ()) * 100 AS revenue_percentage
+FROM sales
+LEFT JOIN product_details ON sales.prod_id = product_details.product_id
+GROUP BY segment_name, product_name;
 ````
+### Answer
+![image](https://github.com/user-attachments/assets/18a97296-ebf1-48e2-a3d5-c7a955f21235)
 
 ***
 
@@ -225,10 +310,16 @@ group by member;
 ### 7. What is the percentage split of revenue by segment for each category?
 
 ```` SQL
-
+SELECT 
+    segment_name, 
+    category_name, 
+    (SUM(((qty * sales.price) / 100) * (100 - discount)) / SUM(SUM(((qty * sales.price) / 100) * (100 - discount))) OVER ()) * 100 AS revenue_percentage
+FROM sales
+LEFT JOIN product_details ON sales.prod_id = product_details.product_id
+GROUP BY 2 , 1;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/98c33ac4-7e6a-47a0-90d5-bc9ae7a36d2d)
+![image](https://github.com/user-attachments/assets/25470cab-ae02-4e13-8547-1044959d9c07)
 
 ***
 
@@ -236,10 +327,16 @@ group by member;
 ### 8. What is the percentage split of total revenue by category?
 
 ```` SQL
+SELECT 
+    category_name, 
+    (SUM(((qty * sales.price) / 100) * (100 - discount)) / SUM(SUM(((qty * sales.price) / 100) * (100 - discount))) OVER ()) * 100 AS revenue_percentage
+FROM sales
+LEFT JOIN product_details ON sales.prod_id = product_details.product_id
+GROUP BY  1;
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/43a395f6-bc91-41ed-944a-28c338d5014e)
+![image](https://github.com/user-attachments/assets/b3da989e-0ca7-499f-9d33-6970a59afdbf)
 
 ***
 
@@ -247,10 +344,12 @@ group by member;
 ### 9. What is the total transaction “penetration” for each product? (hint: penetration = number of transactions where at least 1 quantity of a product was purchased divided by total number of transactions)
 
 ```` SQL
-
+select prod_id , count(case when qty>=1 then txn_id end)/(select count(distinct txn_id) from sales)*100 as penetration
+from sales
+group by prod_id;
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/e0d99c6d-20a9-462e-bbe0-b9008230e27b)
+![image](https://github.com/user-attachments/assets/b7f8322b-d4c2-445f-b399-332677a0b979)
 
 ***
 
