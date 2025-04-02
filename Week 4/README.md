@@ -23,8 +23,6 @@ This case study is all about calculating metrics, growth and helping the busines
 
 ## 📌 Table of Contents
 
-## 📌 Table of Contents
-
 - [Introduction](#introduction)  
 - [ER Diagram](#er-diagram)  
 - [Available Datasets](#available-datasets)  
