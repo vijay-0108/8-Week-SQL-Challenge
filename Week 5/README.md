@@ -23,10 +23,10 @@ What can we do about future introduction of similar sustainability updates to th
 
 ## 📌 Table of Contents
 
-- [Introduction](#introduction)  
-- [ER Diagram](#er-diagram)  
-- [Available Datasets](#available-datasets)  
-- [Questions and Solutions](#questions-and-solutions)  
+- [Introduction](#📝-introduction)  
+- [ER Diagram](#🔗-er-diagram)  
+- [Available Datasets](#📊-available-datasets)  
+- [Questions and Solutions](#📜-questions-and-solutions)  
   - [A. Data Cleansing Steps](#a-data-cleansing-steps)
     - [Question 1](#question-1)
   - [B. Data Exploration](#b-data-exploration)
