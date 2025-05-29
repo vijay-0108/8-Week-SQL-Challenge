@@ -40,7 +40,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/88d48416-a2c4-4153-bef2-7010687e7acd)
+
 
 ***
 
@@ -51,7 +51,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
   
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/b9b6f57d-d4ec-4e6e-b7a3-05b7c6ae51d3)
+
 
 ***
 
@@ -62,7 +62,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/f44982c6-b69e-4229-a001-1bb090eb3e12)
+
 
 ***
 
@@ -73,7 +73,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/bf16d052-15a1-4b1f-b46b-2ee3a6fa5bb0)
+
 
 ***
 
@@ -83,7 +83,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/8e554b86-d59a-4fa0-a445-56348651878a)
+
 
 ***
 
@@ -93,7 +93,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
  
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/d1f3eb78-e1a4-49a9-a459-d44a617e37f7)
+
 
 ***
 
@@ -116,7 +116,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/7bb7746c-5d70-4ef3-aedd-44f8d4a041d8)
+
 
 ***
 
@@ -127,14 +127,13 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
   
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/cc8d04dc-6dc3-4ac2-961d-4937542bd79c)
+
 
 ***
 
 ### Question 3
 ### 3. If we were to remove all interest_id values which are lower than the total_months value we found in the previous question - how many total data points would we be removing?
 
---- we can see a relationship between the no of pizza's in an order to the time taken to complete the order
 ```` SQL
 
 ````
@@ -149,7 +148,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/887bf57c-1494-4b5f-874e-7f612b010d69)
+
 
 ***
 
@@ -159,7 +158,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/4e0d42ff-c568-42ce-b4f7-10862ed0d52d)
+
 
 ***
 
@@ -173,7 +172,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/f166f7f9-03c7-4dad-8d18-6a8700fba11e)
+
 
 ***
 
@@ -184,7 +183,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/6e815ff7-b74a-4ee6-8c9b-d4f988e88975)
+
 
 ***
 
@@ -195,7 +194,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/c98a0b8b-fb46-4b93-9870-b9b07302a872)
+
 
 ***
 
@@ -232,7 +231,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/f166f7f9-03c7-4dad-8d18-6a8700fba11e)
+
 
 ***
 
@@ -243,7 +242,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/6e815ff7-b74a-4ee6-8c9b-d4f988e88975)
+
 
 ***
 
@@ -254,7 +253,7 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 
 ````
 ### Answer
-![image](https://github.com/user-attachments/assets/c98a0b8b-fb46-4b93-9870-b9b07302a872)
+
 
 ***
 
