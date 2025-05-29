@@ -177,4 +177,114 @@ group by dayofweek(order_time);
 
 ***
 
+## A. Runner and Customer Experience
 
+### Question 1
+### 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)?
+
+```` SQL
+select 
+	case when registration_date between '2021-01-01' and '2021-01-07' then 'week1'
+		 when registration_date between '2021-01-08' and '2021-01-14' then 'week2'
+         when registration_date between '2021-01-15' and '2021-01-21' then 'week3'
+         end as registration_week,
+	count(runner_id) as registered_runner_count
+from runners
+group by registration_week;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/7bb7746c-5d70-4ef3-aedd-44f8d4a041d8)
+
+***
+
+### Question 2
+### 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
+
+```` SQL
+with initial_table as(
+	select 
+		order_id , 
+        customer_id , 
+        runner_id , 
+        order_time , 
+        pickup_time
+	from customer_orders_temp
+	left join runner_orders using(order_id))
+select 
+	runner_id,
+        minute(sec_to_time(avg(time_to_sec(timediff(pickup_time,order_time))))) as average_time_per_runnerinminutes
+	from initial_table
+group by runner_id;  
+````
+### Answer
+![image](https://github.com/user-attachments/assets/cc8d04dc-6dc3-4ac2-961d-4937542bd79c)
+
+***
+
+### Question 3
+### 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
+
+--- we can see a relationship between the no of pizza's in an order to the time taken to complete the order
+```` SQL
+
+````
+### Answer
+
+
+***
+
+### Question 4
+### 4. What was the average distance travelled for each customer?
+
+```` SQL
+select  round(avg(r.distance),2) as distance , c.customer_id 
+from runner_orders as r
+left join customer_orders_temp as c using(order_id)
+where distance !='null'
+group by c.customer_id;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/887bf57c-1494-4b5f-874e-7f612b010d69)
+
+***
+
+### Question 5
+### 5. What was the difference between the longest and shortest delivery times for all orders?
+```` SQL
+select max(duration) - min(duration) as difference
+from runner_orders
+where duration>=1;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/4e0d42ff-c568-42ce-b4f7-10862ed0d52d)
+
+***
+
+### Question 6
+### 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
+```` SQL
+select order_id , runner_id , avg(round(distance/(duration/60) , 2)) as speed_in_kmph
+from runner_orders
+group by runner_id , order_id
+order by runner_id , order_id;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/b4194cd6-6df7-49c9-a725-75a18af164a6)
+
+***
+
+### Question 7
+### 7. What is the successful delivery percentage for each runner?
+```` SQL
+with x as(
+select runner_id  , case when cancellation ='cancelled' or  cancellation ='cancelled'then 0  else 1 end as success
+from runner_orders
+order by runner_id)
+select runner_id , sum(success)/count(success)*100 as succesfull_delivery_percentage
+from x 
+group by runner_id;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/18af37a5-e9ce-4367-aad6-43dd89ab5ed1)
+
+***
