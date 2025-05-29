@@ -177,7 +177,7 @@ group by dayofweek(order_time);
 
 ***
 
-## A. Runner and Customer Experience
+## B. Runner and Customer Experience
 
 ### Question 1
 ### 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)?
@@ -229,7 +229,6 @@ group by runner_id;
 
 ````
 ### Answer
-
 
 ***
 
@@ -286,5 +285,111 @@ group by runner_id;
 ````
 ### Answer
 ![image](https://github.com/user-attachments/assets/18af37a5-e9ce-4367-aad6-43dd89ab5ed1)
+
+***
+
+## C. Ingredient Optimisation
+
+### Question 1
+### 1. What are the standard ingredients for each pizza?
+
+```` SQL
+select * from pizza_recipes;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/f166f7f9-03c7-4dad-8d18-6a8700fba11e)
+
+***
+
+### Question 2
+### 2. What was the most commonly added extra?
+
+```` SQL
+WITH RECURSIVE numbers AS (
+  SELECT 1 AS n
+  UNION ALL
+  SELECT n + 1 FROM numbers WHERE n < 10
+), y as(
+SELECT 
+  c.order_id,
+  SUBSTRING_INDEX(SUBSTRING_INDEX(c.extras, ',', n), ',', -1) AS extra
+FROM customer_orders_temp AS c
+LEFT JOIN LATERAL (
+  SELECT n FROM numbers
+  WHERE n <= LENGTH(c.extras) - LENGTH(REPLACE(c.extras, ',', '')) + 1
+) AS x ON TRUE)
+select extra , count(extra) as topping_count , topping_name
+from y left join pizza_toppings on y.extra = pizza_toppings.topping_id
+where extra>0
+group by extra , topping_name
+order by topping_count desc
+limit 1;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/6e815ff7-b74a-4ee6-8c9b-d4f988e88975)
+
+***
+
+### Question 3
+### 3. What was the most common exclusion?
+
+--- we can see a relationship between the no of pizza's in an order to the time taken to complete the order
+```` SQL
+WITH RECURSIVE numbers AS (
+  SELECT 1 AS n
+  UNION ALL
+  SELECT n + 1 FROM numbers WHERE n < 10
+), y as(
+SELECT 
+  c.order_id,
+  SUBSTRING_INDEX(SUBSTRING_INDEX(c.exclusions, ',', n), ',', -1) AS exclusion
+FROM customer_orders_temp AS c
+LEFT JOIN LATERAL (
+  SELECT n FROM numbers
+  WHERE n <= LENGTH(c.exclusions) - LENGTH(REPLACE(c.exclusions, ',', '')) + 1
+) AS x ON TRUE)
+select exclusion , count(exclusion) as topping_count , topping_name
+from y left join pizza_toppings on y.exclusion = pizza_toppings.topping_id
+where exclusion>0
+group by exclusion , topping_name
+order by topping_count desc
+limit 1;
+````
+### Answer
+![image](https://github.com/user-attachments/assets/c98a0b8b-fb46-4b93-9870-b9b07302a872)
+
+***
+
+### Question 4
+### 4. Generate an order item for each record in the customers_orders table in the format of one of the following:
+### Meat Lovers
+### Meat Lovers - Exclude Beef
+### Meat Lovers - Extra Bacon
+### Meat Lovers - Exclude Cheese, Bacon - Extra Mushroom, Peppers
+
+```` SQL
+
+````
+### Answer
+
+***
+
+### Question 5
+### 5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients
+### For example: "Meat Lovers: 2xBacon, Beef, ... , Salami"
+
+```` SQL
+
+````
+### Answer
+
+***
+
+### Question 6
+### 6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
+```` SQL
+
+````
+### Answer
 
 ***
