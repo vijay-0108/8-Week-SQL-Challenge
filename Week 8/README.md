@@ -122,6 +122,9 @@ group by id;
 ````
 ### Answer
 ![image](https://github.com/user-attachments/assets/9db95c20-c241-481e-8804-d7714ec0ca88)
+
+***
+
 ![image](https://github.com/user-attachments/assets/e5637a7b-74d9-4efe-ad8b-68eeb46b9bc5)
 
 ***
@@ -129,20 +132,32 @@ group by id;
 ### Question 6
 ### 6. What sort of table join should we perform for our analysis and why? Check your logic by checking the rows where interest_id = 21246 in your joined output and include all columns from fresh_segments.interest_metrics and all columns from fresh_segments.interest_map except from the id column
 ```` SQL
- 
+SELECT _month, _year, interest_id, composition, index_value, ranking, percentile_ranking, month_year ,interest_name, interest_summary, created_at, last_modified
+FROM METRICS 
+JOIN MAP ON METRICS.INTEREST_ID = MAP.ID
+WHERE INTEREST_ID = 21246 AND _month >1;
 ````
 ### Answer
-
+![image](https://github.com/user-attachments/assets/97559a96-6304-4862-8235-3faba7cf6d62)
 
 ***
 
 ### Question 7
 ### 7. Are there any records in your joined table where the month_year value is before the created_at value from the fresh_segments.interest_map table? Do you think these values are valid and why?
 ```` SQL
+select _month , interest_id, composition, index_value, ranking, percentile_ranking, month_year , interest_name, interest_summary, created_at, last_modified
+from map inner join metrics on map.id = metrics.interest_id
+where month_year<created_at;
 
+select count(*) as record_count
+from map inner join metrics on map.id = metrics.interest_id
+where month_year<created_at;
 ````
 ### Answer
-
+### There are 188 such records where month_year value is before the created_at value from the fresh_segments.interest_map table. These records are bvalid cause we initially set the day to 1 for every month.
+![image](https://github.com/user-attachments/assets/e72eab4c-6cd3-49cd-b04f-f02e8c0936ab)
+***
+![image](https://github.com/user-attachments/assets/11b9e12a-e4aa-4ab9-b46d-7ce17e0da834)
 
 ***
 
