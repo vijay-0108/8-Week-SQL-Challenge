@@ -37,10 +37,21 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 ### 1. Update the fresh_segments.interest_metrics table by modifying the month_year column to be a date data type with the start of the month
 
 ```` SQL
+ALTER TABLE fresh_segments.interest_metrics
+ADD COLUMN month_year_temp DATE;
 
+UPDATE fresh_segments.interest_metrics
+SET month_year_temp = STR_TO_DATE(CONCAT(TRIM(month_year), '-01'), '%m-%Y-%d')
+WHERE month_year IS NOT NULL AND month_year <> 'NULL';
+
+ALTER TABLE fresh_segments.interest_metrics
+DROP COLUMN month_year;
+
+ALTER TABLE fresh_segments.interest_metrics
+CHANGE COLUMN month_year_temp month_year DATE;
 ````
 ### Answer
-
+![image](https://github.com/user-attachments/assets/6afeefa9-c43c-4d20-886f-e9f2e7b35684)
 
 ***
 
@@ -48,10 +59,13 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 ### 2. What is count of records in the fresh_segments.interest_metrics for each month_year value sorted in chronological order (earliest to latest) with the null values appearing first?
 
 ```` SQL
-  
+select month_year , count(*) as count_of_records
+from metrics
+group by month_year
+order by month_year asc;
 ````
 ### Answer
-
+![image](https://github.com/user-attachments/assets/d6469216-1a1e-4e20-bd3c-5c0cb17eaa0b)
 
 ***
 
@@ -70,20 +84,45 @@ Danny has asked for your assistance to analyse aggregated metrics for an example
 ### 4. How many interest_id values exist in the fresh_segments.interest_metrics table but not in the fresh_segments.interest_map table? What about the other way around?
 
 ```` SQL
-
+SELECT 
+    (SELECT 
+            COUNT(DISTINCT m.interest_id)
+        FROM
+            fresh_segments.metrics m
+                LEFT JOIN
+            fresh_segments.map im ON m.interest_id = im.id
+        WHERE
+            im.id IS NULL) AS metrics_only_count,
+    (SELECT 
+            COUNT(DISTINCT im.id)
+        FROM
+            fresh_segments.map im
+                LEFT JOIN
+            fresh_segments.metrics m ON im.id = m.interest_id
+        WHERE
+            m.interest_id IS NULL) AS map_only_count;
 ````
 ### Answer
 
+### There is 1 interest_id in the fresh_segments.interest_metrics table that does not have a corresponding id in the fresh_segments.interest_map table.
+### There are 7 id values in the fresh_segments.interest_map table that do not have a corresponding interest_id in the fresh_segments.interest_metrics table.
+
+![image](https://github.com/user-attachments/assets/79596068-a185-497e-85dc-bc5bd9cf7825)
 
 ***
 
 ### Question 5
 ### 5. Summarise the id values in the fresh_segments.interest_map by its total record count in this table
 ```` SQL
+select count(id) as id_count from map;
 
+select id , count(*)
+from map
+group by id;
 ````
 ### Answer
-
+![image](https://github.com/user-attachments/assets/9db95c20-c241-481e-8804-d7714ec0ca88)
+![image](https://github.com/user-attachments/assets/e5637a7b-74d9-4efe-ad8b-68eeb46b9bc5)
 
 ***
 
