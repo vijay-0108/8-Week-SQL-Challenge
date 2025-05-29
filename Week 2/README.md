@@ -42,7 +42,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 ## 🔗 ER Diagram  
 Below is the **Entity Relationship (ER) Diagram** for the dataset:  
 
-![image](https://github.com/user-attachments/assets/1d6b8feb-3bc8-409e-a05d-c7f8ffd80dbb)
+![image](https://github.com/user-attachments/assets/36911a41-fe10-42c3-adcd-48657bd9279e)
 
 ***
 
