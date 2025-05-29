@@ -333,7 +333,6 @@ limit 1;
 ### Question 3
 ### 3. What was the most common exclusion?
 
---- we can see a relationship between the no of pizza's in an order to the time taken to complete the order
 ```` SQL
 WITH RECURSIVE numbers AS (
   SELECT 1 AS n
