@@ -5,7 +5,7 @@
 ## 📌 Challenge Overview  
 This case study is part of the **[8-Week SQL Challenge](https://8weeksqlchallenge.com)** by **Danny Ma**.  
 Check out the original challenge details [here](https://8weeksqlchallenge.com/case-study-8/).  
- 
+  
 ## 📝 Introduction  
 Danny created Fresh Segments, a digital marketing agency that helps other businesses analyse trends in online ad click behaviour for their unique customer base.
 
